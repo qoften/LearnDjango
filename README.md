@@ -8,4 +8,4 @@
 
 1.installdjango 安装Django
 
-2.runserver 试运行服务器2
+2.runserver 试运行服务器
