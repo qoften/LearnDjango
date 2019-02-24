@@ -8,4 +8,4 @@
 
 1.installdjango 安装Django
 
-2.runserver 试运行服务器
+2.runserver 学习migrate迁移数据库和runserver运行服务器
