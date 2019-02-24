@@ -10,7 +10,7 @@
 
 2.runserver.py 学习migrate迁移数据库和runserver运行服务器
 
-3.crateapp.py 为项目增加应用，导入模块并激活 
+3.createapp.py 为项目增加应用，导入模块并激活 
 
 4.superuser.py 简单了解网站分级管理，登录并尝试在网页APP1中添加主题
 
