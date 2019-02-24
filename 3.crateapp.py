@@ -84,17 +84,4 @@ python manage.py migrate 应用迁移
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 '''
