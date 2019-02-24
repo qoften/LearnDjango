@@ -14,6 +14,6 @@
 
 4.superuser.py 简单了解网站分级管理，登录并尝试在网页APP1中添加主题
 
-5.
+5.djangoshell.py 新增、迁移、注册条目模块，使用交互式终端对话 Django shell 查看之前输入的条目数据
 
 
