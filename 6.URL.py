@@ -24,8 +24,8 @@ from django.conf.urls import include, url # 导入了管理URL的函数和模块
 from django.contrib import admin
 
 urlpatterns = [
-    path(r'admin/', include(admin.site.urls)), # 定义变量 urlpatterns 包含模块admin.site.urls，定义可在管理网站请求中的所有URL
-    path(r'', include('app1.urls', namespace='app1')), # 书原文为learning_logs，替换为app1，便于区分（别忘了末尾的,）
+    url(r'admin/', include(admin.site.urls)), # 定义变量 urlpatterns 包含模块admin.site.urls，定义可在管理网站请求中的所有URL
+    url(r'', include('app1.urls', namespace='app1')), # 书原文为learning_logs，替换为app1，便于区分（别忘了末尾的,）
 ]
 
 >>>>书中旧版本见上，新版编写方式见下，在此列出，便于比对适应新旧变化：
