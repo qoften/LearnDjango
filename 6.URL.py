@@ -18,7 +18,7 @@ URL模式描述了URL是如何设计，让Django知道如何将浏览器请求�
 现在要将基础URL映射到“学习笔记”主页
 
     打开项目主文件夹（learning_log）的urls.py：
-（书里显示与实际使用新版不同，后续代码已按新版重新编排，url替换为新版path写法）
+（书里显示与实际使用新版不同，后续代码已按新版重新编排，url替换为Django 2.0后的path写法）
 
 from django.conf.urls import include, url # 导入管理URL的函数和模块
 from django.contrib import admin
@@ -36,7 +36,7 @@ from django.urls import include, path # <<<<这里也变了
 
 urlpatterns = [
     path('admin/', admin.site.urls), # 定义变量 urlpatterns 包含模块admin.site.urls，定义可在管理网站请求中的所有URL
-    path('', include('app1.urls')), # ''内没有，代表默认的首页，实参 namespace 可将app1的URL与其他分开，便于后续扩展（别忘了末尾的,）
+    path('', include('app1.urls')), # ''内没有，代表默认的首页（别忘了末尾的,）
 ]
 
     在app1文件夹下添加urls.py（书中旧版url方法）：
@@ -95,7 +95,7 @@ app1中新建一个文件夹，命名为templates，该文件夹中再建立一�
 app1中的 views.py 是由之前 python manage.py startapp 时自动生成
 其内置函数 render（） 根据视图提供的数据渲染响应，编入以下行：
 
-def index(reuest):
+def index(request):
     '''学习笔记主页'''
     return render(request, 'logs/index.html') # 两个实参，原始请求对象和创建网页模版
 
