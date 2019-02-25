@@ -22,7 +22,8 @@ Starting development server at http://127.0.0.1:8000/
 
 浏览器输入http://localhost:8000/ 或 http://127.0.0.1:8000，页面显示成功！框架运行正常
 
-
+如果出现“That port is already in use”说明端口被占用，
+python manage.py runserver8001 切换至8001端口，如还不行，尝试逐渐增大端口号直到找到可用端口
 
 
 
