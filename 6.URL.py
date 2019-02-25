@@ -39,7 +39,7 @@ urlpatterns = [
     path('', include('app1.urls')), # ''内没有，代表默认的首页，实参 namespace 可将app1的URL与其他分开，便于后续扩展（别忘了末尾的,）
 ]
 
-    在app1文件夹下添加urls.py（新版2.1.7，尝试使用新版path方法）：
+    在app1文件夹下添加urls.py（书中旧版url方法）：
     
 （我是PyCharm打开项目，app1文件夹-鼠标右键-New-File-输入urls.py ）
 
