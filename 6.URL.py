@@ -18,9 +18,9 @@ URL模式描述了URL是如何设计，让Django知道如何将浏览器请求�
 现在要将基础URL映射到“学习笔记”主页
 
     打开项目主文件夹（learning_log）的urls.py：
-（书里显示与实际使用新版不同，后续代码已按新版重新编排）
+（书里显示与实际使用新版不同，后续代码已按新版重新编排，url替换为新版path写法）
 
-from django.conf.urls import include, url # 导入了管理URL的函数和模块
+from django.conf.urls import include, url # 导入管理URL的函数和模块
 from django.contrib import admin
 
 urlpatterns = [
@@ -32,14 +32,14 @@ urlpatterns = [
 
 # 新版前两行默认缩略，显示为 import... 点开 ... 查看，书显示上两行（1.1.0版本）与新版（2.1.7）下两行作用相符
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path # <<<<这里也变了
 
 urlpatterns = [
     path('admin/', admin.site.urls), # 定义变量 urlpatterns 包含模块admin.site.urls，定义可在管理网站请求中的所有URL
-    path('', 'app1.urls', namespace='app1'), # ''内没有，代表默认的首页，实参 namespace 可将app1的URL与其他分开，便于后续扩展（别忘了末尾的,）
+    path('', include('app1.urls')), # ''内没有，代表默认的首页，实参 namespace 可将app1的URL与其他分开，便于后续扩展（别忘了末尾的,）
 ]
 
-    在app1文件夹下添加urls.py（新版2.1.7方法）：
+    在app1文件夹下添加urls.py（新版2.1.7，尝试使用新版path方法）：
     
 （我是PyCharm打开项目，app1文件夹-鼠标右键-New-File-输入urls.py ）
 
@@ -66,6 +66,17 @@ URL模式是一个对函数url（）的调用，函数接受三个实参
 >>>>第二个实参，调用views.index（具体见下）
 >>>>第三个实参，将URL模式名称指定为'index'，以方便我们再其他地方引用它，需提供链接时，使用该名称而不用编写URL
 
+尝试用新版path方式改写
+'''定义app1的Path模式''' #首行添加文档字符串，以区分是哪个app的urls.py
+
+from django.urls import path # 改为path
+
+from . import views # 导入模块views，其中的 . 句点让Python从当前urls.py所在文件夹导入视图
+
+urlpatterns =[
+    # 主页
+    path('', views.index, name='index'), # 改为path，别忘了后面的,
+]
 
     编写模版index.html：
     
@@ -86,14 +97,23 @@ app1中的 views.py 是由之前 python manage.py startapp 时自动生成
 
 def index(reuest):
     '''学习笔记主页'''
-    return render(request, 'app1/index.html') # 两个实参，原始请求对象和创建网页模版
+    return render(request, 'logs/index.html') # 两个实参，原始请求对象和创建网页模版
 
 
 再次请求基础URL（http://localhost:8000/admin/），转到刚才创建的网页
 Django接受请求的URL，发现该URL与模式''匹配，因此调用函数views.index(),使用index.html包含的模版渲染网页并展示
 
 
-
+Django2.0后url更新为path的用法说明，Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 
 '''
