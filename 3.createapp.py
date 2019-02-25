@@ -32,11 +32,9 @@ __init__.py -包初始化文件
 最好记录每个条目的时间戳
 
 
-    创建模型：
+    创建模型（应用）：
     
 打开models.py（本人学习是使用PyCharm打开learning_log文件夹）
-
-models.py
 
 from django.db import models
 
@@ -44,8 +42,8 @@ from django.db import models
 
 class Topic(models.Model):
 	'''用户学习的主题'''
-	text = models.CharField(max_length=200)
-	date_added = models.DateTimeField(auto_now_add=True)
+	text = models.CharField(max_length=200) # CharField 储存字符和文本数据，变量名（用作标题）预留200字符空间
+	date_added = models.DateTimeField(auto_now_add=True) # DateTimeField 记录日期和时间的数据
 	
 	def __str__(self):
 		'''返回模型的字符串表示'''
@@ -63,7 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app1', # 添加应用程序app1
+    'app1', # 添加应用程序app1        # <<<<该行为添加行
 ]
 
 python manage.py makemigrations app1 使用 makemigrations 命令来让Django替我们修改数据库，储存相关联的数据
