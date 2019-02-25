@@ -51,14 +51,39 @@ python manage.py shell 启动一个Python解释器，来探索储存在项目中
 >>> Topic.objects.all() # 获取模型所有实例
 <QuerySet [<Topic: Chess>, <Topic: Rock Climbing>]> # 返回的列表，称为查询集（queryset）
 
-像遍历列表一样，遍历查询集，查询每个主题对象ID：
+
+    像遍历列表一样，遍历查询集，查询每个主题对象ID：
+    
 >>> topics = Topic.objects.all()
 >>> for topic in topics:
 ...     print(topic.id, topic) # 注意手工缩进4格
-？？？为什么我没输出每个主题ID啊
+...    # <<<<还说怎么没显示每个对象ID，原来是还要再按一次回车
+1 Chess
+2 Rock Climbing
 
 
+    知道对象ID后，可以获取对象查看其属性:
     
+>>> t = Topic.objects.get(id=1)
+>>> t.text
+'Chess'
+>>> t.date_added
+datetime.datetime(2019, 2, 24, 10, 11, 45, 903316, tzinfo=<UTC>)
+
+
+    查看主题关联条目:
+    
+>>> t.entry_set.all()
+<QuerySet [<Entry: Chess is a two-player strategy board game played o...>]>
+ 为通过外键关系获取数据，可使用相关模型的 小写名称、下划线和单词set（entry_set）   
+
+
+每次修改模型后，必须重启shell重载数据，
+退出shell >>>> win10使用Ctrl+Z，再回车，其他系统使用Ctr+D
 
 
 
+
+
+
+'''
