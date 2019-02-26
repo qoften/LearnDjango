@@ -81,8 +81,15 @@ urlpatterns =[
     编写模版index.html：
     
 模版 定义了网页的结构，指定了网页是什么样子。模版让你能够访问视图提供的任何数据。
-app1中新建一个文件夹，命名为templates，该文件夹中再建立一个文件夹logs（建立Django可以明确解读的结构）
-在最里面的logs中，新建一个File 命名为index.html，在该文件中写入
+app1中新建一个文件夹，命名为templates，该文件夹中再建立一个同名文件夹app1 （本节为了便于理解使用logs命名，后发现会引发冲突，下节起重新替换回app1）
+'''
+logs更名为同名app1原因，是因为Django按照INSTALLED_APPS中的添加顺序查找Template,
+如不同app下如果同名html，会导致只加载第一个导致冲突
+解决办法 a.所有html文件名不同 b.在template文件下新建对应app同名文件夹，将html放在其中
+Django可参考慕课网django5-2开发第一个template： https://www.imooc.com/video/13965
+'''
+
+在最里面的logs（请使用app同名文件夹app1，这里只是为了便于理解）中，新建一个File 命名为index.html，在该文件中写入
 <p>Learning Log</p> # 标签<p></p>标识段落，<p>指出开头，</p>标出结尾
 
 <p>Learning Log helps you keep track of your learning, for any topic you're learning about.</p>
