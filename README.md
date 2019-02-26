@@ -1,5 +1,6 @@
 # LearnDjango
 本人Django的学习笔记
+基于《Python编程 从入门到实践》
 
 
 目录：
@@ -14,6 +15,8 @@
 
 4.superuser.py 简单了解网站分级管理，登录并尝试在网页APP1中添加主题
 
-5.djangoshell.py 新增、迁移、注册条目模块，使用交互式终端对话 Django shell 查看之前输入的条目数据
+5.djangoshell.py 以添加一个条目模型为例学习新增模型操作【新增、迁移、注册】，使用交互式终端对话 Django shell 查看之前输入的条目数据
 
-6.URL.py 学习创建网页三个阶段：定义URL，编写模版，编写视图。了解正则表达式regex
+6.URL.py 学习创建网页三个阶段：定义URL，编写模版，编写视图。了解正则表达式regex（Django2.0 path写法重编译）
+
+7.
