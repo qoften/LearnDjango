@@ -13,7 +13,7 @@ Password:
 Password (again):
 Superuser created successfully.
 
-这里用户名，邮箱，密码自行设置，帐号默认为PC用户名，密码输入时光标不移动
+这里用户名，邮箱，密码自行设置，不要使用PC用户名，密码输入时光标不移动
 当密码为全数字时会提示 This password is entirely numeric. 提示你密码不能全为数字
 
 
