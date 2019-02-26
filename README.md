@@ -7,7 +7,7 @@
 
 0.env.py 虚拟环境的安装（将项目库与其他项目隔离，方便后期部署到服务器，非必须）
 
-1.installdjango.py 安装Django
+1.installdjango.py 安装Django（本人学习基于Django新版2.1.7，与书中1.11版本稍有变化）
 
 2.runserver.py 学习migrate迁移数据库和runserver运行服务器
 
